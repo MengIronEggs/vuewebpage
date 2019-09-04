@@ -1,0 +1,305 @@
+@charset "UTF-8";
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', serif !important;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-touch-callout: none;
+}
+
+#app {
+    height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+//页面右侧内容区域
+section.content-container {
+    .content-box {
+        font-size: 12px;
+        input,
+        textarea {
+            font-size: 12px;
+        }
+        /*-----列表页面通用样式开始-------*/
+        .table-header {
+            .search-block {
+                padding: 10px 0 10px 0;
+                font-size: 12px;
+            }
+            .btn-block {
+                padding: 10px 0 10px 0;
+                overflow: hidden;
+                .left-part {
+                    float: left;
+                }
+                .right-part {
+                    float: right;
+                }
+                .left-part {
+                    float: left;
+                }
+            }
+        }
+        .table-content {
+            .el-table thead {
+                color: #333;
+            }
+            .el-table {
+                color: #333;
+                font-size: 12px;
+            }
+        }
+        .table-footer {
+            padding: 40px 70px 20px 70px;
+        }
+        /*-----列表页面通用样式结束-------*/
+        /*-----表单的通用样式开始-----*/
+        .form-line,
+        .search-line {
+            padding: 5px 0;
+            line-height: 36px;
+            .el-table {
+                font-size: 12px;
+            }
+            /*表单中的标签*/
+            .form-label {
+                text-align: right;
+            }
+            .icon-search {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                // background: url("../../static/img/search_block_search_icon.png") center / contain no-repeat;
+                vertical-align: middle;
+            }
+            .icon-search-user {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                // background: url("../../static/img/search_user_icon.png") center / contain no-repeat;
+                vertical-align: middle;
+            }
+        }
+        //搜索部分样式
+        .search-line {
+            .cut-off-rule {
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    height: 1px;
+                    background: #cccccc;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    display: inline-block;
+                    top: -3px;
+                }
+            }
+            .el-date-editor.el-input {
+                width: 100%;
+            }
+            .el-select {
+                width: 100%;
+            }
+        }
+        //表单部分样式
+        .form-line {
+            /*表单必填标记*/
+            .require-mark {
+                position: relative;
+                &::before {
+                    content: "*";
+                    position: absolute;
+                    left: -15px;
+                    font-size: 20px;
+                    color: red;
+                }
+            }
+            /*卡片中嵌套表格的样式*/
+            .el-card {
+                .el-card__body {
+                    padding: 0
+                }
+                /*卡片表单、卡片表格头部样式*/
+                &.card-block,
+                &.table-block {
+                    .card-header {
+                        padding: 5px 10px;
+                        line-height: 28px;
+                        background-color: #eef1f6;
+                        font-size: 14px;
+                        color: #FF4949;
+                        font-weight: bold;
+                    }
+                }
+                &.table-block {
+                    .card-body {
+                        &.no-header {
+                            thead {
+                                display: none;
+                            }
+                        }
+                        thead {
+                            th {
+                                background: #f8f8f8;
+                                .cell {
+                                    background: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .form-line.form-group {
+            padding: 30px 0 0 0 !important;
+            .card-body {
+                padding: 10px 0 20px 0;
+            }
+        }
+        .form-footer {
+            padding: 30px 0 30px 0;
+            button {
+                width: 100%;
+            }
+        }
+        /*-----表单的通用样式结束-----*/
+    }
+}
+
+
+/*覆盖 element message 错误提示框出现位置*/
+
+.el-message {
+    font-size: 16px;
+    &.form-error {
+        top: 40%;
+    }
+}
+
+
+/*淡化table固定列的阴影*/
+
+.el-table__fixed-right {
+    box-shadow: 1px 0 8px #d3d4d6;
+}
+
+.el-table .cell,
+.el-table th>div {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+//定义滚动条样式
+
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(245, 245, 245, 0);
+    border-radius: 5px;
+}
+
+
+/*定义滚动条的轨道，内阴影及圆角*/
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+
+/*定义滑块，内阴影及圆角*/
+
+::-webkit-scrollbar-thumb {
+    /*width: 10px;*/
+    height: 10px;
+    border-radius: 5px;
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
+    background-color: #666;
+}
+
+.xa {
+    background-color: #3e3f41;
+    padding: 0;
+}
+
+
+/* .xa .el-notification__icon{
+   margin: 5px;
+  padding: 5px;
+} */
+
+.xa .el-notification__group {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.xa .el-notification__group .el-notification__title {
+    background-image: url("https://img.guoanfamily.com/icon-0002.png");
+    background-repeat: no-repeat;
+    background-position: 5px 4px;
+    height: 20px;
+    color: #FFF;
+    margin: 5px;
+    padding: 5px;
+    padding-left: 35px;
+}
+
+.xa .el-notification__group .el-notification__content {
+    min-height: 80px;
+    background-color: #e6e7ee;
+    background-image: url(https://img.guoanfamily.com/icon-0001.png);
+    background-repeat: no-repeat;
+    background-position: 10px 20px;
+    padding: 0;
+    margin: 3px;
+    border-radius: 8px;
+    padding-left: 55px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}
+
+.xa .el-notification__group .el-notification__closeBtn {
+    top: 12px;
+    color: #fff;
+}
+
+.xa .el-icon-close:before {
+    content: "\e609";
+}
