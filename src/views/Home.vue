@@ -17,6 +17,7 @@ export default {
   methods:{
     oneClick(){
       this.$showErrorTip1('啊哈哈');
+      
     }
   },
   mounted(){
