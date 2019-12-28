@@ -3,9 +3,7 @@
  */
 
 //保存所有的广播事件
-import {
-    config
-} from '../config';
+import { config } from '../config';
 // import crumbs from '../components/bread.vue'
 
 export default class {
@@ -21,8 +19,6 @@ export default class {
         this.installExtendsFunction();
         this.installComponent(Vue);
         this.installPrototype(Vue);
-        this.installMixin(Vue);
-        this.installFilter(Vue);
     }
 
     /*------------------安装扩展方法------------------*/
@@ -60,31 +56,6 @@ export default class {
 
     /*------------------添加vue实例方法------------------*/
     installPrototype(Vue) {
-
-        //定义storage里面的key
-        Vue.prototype.KEYS = {
-            //记录当前登录的用户信息
-            USER_INFO: 'USER_INFO',
-            USER_ACCOUNT: 'USER_ACCOUNT',
-            USER_ID: 'USER_ID',
-        };
-
-        //定义全局事件
-        Vue.prototype.EVENTS = {
-            UPDATE_MENU_ACTIVE: 'UPDATE_MENU_ACTIVE', //页面路由改变时，更新菜单的展开项目
-            RELOAD_ARTICLE_TEMPLATE_LIST: 'RELOAD_ARTICLE_TEMPLATE_LIST' //重新加载文章模版列表
-        };
-
-        /**
-         * 定义上传图片的地址
-         * @type {string}
-         */
-        Vue.prototype.UPLOAD_IMAGE = config.UPLOAD_IMAGE;
-        Vue.prototype.UPLOAD_EDITOR_IMAGE = config.UPLOAD_EDITOR_IMAGE;
-        Vue.prototype.UPLOAD_FILE = config.UPLOAD_FILE;
-        Vue.prototype.UPLOAD_FILE2 = config.UPLOAD_FILE2;
-
-        
         // 数组对象排序(倒叙，由高到低)
         Vue.prototype.$ArrObjSort = (property) =>{
             return function(a,b){
@@ -93,98 +64,5 @@ export default class {
                 return value2 - value1;
             }
         };
-
-        /**
-         * 删除操作时的弹出框
-         * 封装element的confirm弹出层
-         */
-        Vue.prototype.$deleteConfirm = function (cb, msg = "确认删除？") {
-            this.$confirm(msg, '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                cb();
-            }).catch(() => {
-
-            });
-        };
-
-        /**
-         * 封装操作的错误提示信息
-         * @param msg
-         */
-        Vue.prototype.$showErrorTip = function (msg) {
-            this.$message.error({
-                message: msg,
-                customClass: 'form-error',
-                showClose: true,
-                duration: 2000,
-            });
-        };
-
-        /**
-         * 封装展示弹出消息
-         * @param msg
-         * @param type
-         */
-        Vue.prototype.$showMsgTip = function (msg, type = 'success') {
-            this.$message({
-                message: msg,
-                type: type,
-                customClass: 'form-error',
-                showClose: true,
-                duration: 2000,
-            });
-        };
-
-        /**
-         * 展示确认操作提示框
-         * @param msg
-         * @param cb
-         * @param type
-         */
-        Vue.prototype.$showConfirm = function (msg, cb = () => {}, type = 'warning') {
-            this.$confirm(msg, '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: type
-            }).then(() => {
-                cb();
-            }).catch(() => {
-                this.$message({
-                    message: "取消操作",
-                    type: 'info',
-                    customClass: 'form-error',
-                    showClose: true,
-                    duration: 2000,
-                });
-            });
-        };
-
-
-    }
-
-    /*------------------添加vue过滤器------------------*/
-    installFilter(Vue) {
-        Vue.filter('date-time-filter', function(time) {
-            if (!time) {
-                return "";
-            }
-            return new Date(time).Format("yyyy-MM-dd hh:mm");
-        });
-        Vue.filter('numFilter',function(value){
-            let realVal = parseFloat(value).toFixed(2);
-            return realVal;
-        })
-    }
-
-    /*------------------安装mixin方法------------------*/
-    installMixin(Vue) {
-        Vue.mixin({
-            beforeDestroy: function () {
-                // this.$unsubscribe();
-            }
-        })
     }
 }

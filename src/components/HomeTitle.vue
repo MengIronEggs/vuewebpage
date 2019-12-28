@@ -265,9 +265,7 @@ export default {
         .then(() => {})
         .catch(() => {});
     },
-
     
-
     goHome() {
       this.$router.push("/home");
     },

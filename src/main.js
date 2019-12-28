@@ -18,6 +18,8 @@ import Common from '../script/common';
 Vue.use(new Common());
 //应用全局样式
 import './styles/public.less';
+import './styles/page.less';
+
 
 new Vue({
   router,

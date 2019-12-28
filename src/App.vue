@@ -56,7 +56,9 @@ export default {
 
   created() {},
 
-  mounted() {},
+  mounted() {
+    
+  },
 
   methods: {
     updateLoginStatus(state) {

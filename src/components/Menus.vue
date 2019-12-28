@@ -168,11 +168,10 @@ export default {
 
   mounted() {
     this.initMenu();
-    // this.subscribe(this.EVENTS.UPDATE_MENU_ACTIVE, "Menus", this.monitorRouter);
   },
 
   beforeDestroy() {
-    // this.unsubscribe(this.EVENTS.UPDATE_MENU_ACTIVE, "Menus");
+    
   },
 
   methods: {
